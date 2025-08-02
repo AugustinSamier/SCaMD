@@ -722,7 +722,7 @@ def SCaMD(
             return extractsFin
         dictoFin=newFilterCod(extractsFin,langs)
         promptCodFin=createCodLlama(dictoFin,src,name=nameMode,mode=mode)
-        mergeFinalPrompt=reformPrompt(mergeFinalPrompt,cutCod(promptCodFin,sentence,size=size,adapting=adapting,goalSize=goalSize),place=place)
+        mergeFinalPrompt=reformPrompt(mergeFinalPrompt,cutCod(prompt=promptCodFin,sentence=sentence,size=size,adapting=adapting,goalSize=goalSize),place=place)
 
     traductionFinale=pipe(mergeFinalPrompt, max_new_tokens=500, do_sample=False,pad_token_id=tokenizer.eos_token_id)[0]["generated_text"][len(mergeFinalPrompt):].strip()
     

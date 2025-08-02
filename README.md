@@ -21,9 +21,9 @@ python -m scamd_sampler\
     --nb 100\                             # Number of sentences to generate (None = all)
     --comptra True\                       # Whether to run compositional translation
     --scamd True\                         # Whether to run dictionary generation (SCaMD)
-    --prompts_path None\                  # Reuse saved prompts (None = regenerate)
+    --prompts_path None\                  # Reuse saved prompts (None = regenerate) -> Example: "flores-Compositional-translation-Amharic"
     --outPrompts False\                   # Output the prompts to file (without translation)
-    --dictionaries_path None\             # Reuse saved dictionaries (None = regenerate)
+    --dictionaries_path None\             # Reuse saved dictionaries (None = regenerate) -> Example: "flores-Dictionaries-(English-French-German-Portuguese)"
     --outCod False\                       # Output the dictionaries to file (without generation)
     --filterSize 40\                      # Max word window repetition filter
     --filterChrSize 5\                    # Max character window repetition filter

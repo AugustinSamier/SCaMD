@@ -96,7 +96,7 @@ def sampler(
             dataset_name_or_path="openlanguagedata/flores_plus"
         )
     if nb is None:
-        nb=len(ds_src)
+        nb=len(ds_src["text"])
     
     ### Loading the existing prompts and dictionaries in order to save them.
     path_name="out/GENERATIONS/"+path_output
@@ -138,6 +138,9 @@ def sampler(
         
         cods=cods[checkpoint:checkpoint+nb]
 
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    print(f"[INFO] Using device: {device}")
     for i in range(checkpoint,nb):
         torch.cuda.empty_cache()
         gc.collect()
@@ -145,7 +148,7 @@ def sampler(
         codsIndex=cods[i] if dictionaries_path else None
             
         output=SCaMD(
-            sentence=ds_src[i],
+            sentence=ds_src[i]["text"],
             langs=codLangs,
             k=k,
             src=src,
@@ -177,14 +180,14 @@ def sampler(
             with open(output_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(output, ensure_ascii=False) + "\n")
         else:
-            print(f"Sentence number : {i+1}\nSentence : {ds_src[i]}\n")
+            print(f"Sentence number : {i+1}\nSentence : {ds_src[i]["text"]}\n")
             print(f"Translation generated: {output}")
             print("\n\n")
             with open(output_path, "a", encoding="utf-8") as f:
                 line = {
-                    "source": ds_src[i],
+                    "source": ds_src[i]["text"],
                     "hypothesis": output,
-                    "reference": ds_tgt[i]
+                    "reference": ds_tgt[i]["text"]
                 }
                 f.write(json.dumps(line, ensure_ascii=False) + "\n")
 
