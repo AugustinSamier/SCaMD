@@ -1,6 +1,6 @@
 ################ Model loading.
 
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline,BitsAndBytesConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 
 def load_model(model_id="meta-llama/Llama-3.1-8B-Instruct"):
@@ -726,5 +726,5 @@ def SCaMD(
 
     traductionFinale=pipe(mergeFinalPrompt, max_new_tokens=500, do_sample=False,pad_token_id=tokenizer.eos_token_id)[0]["generated_text"][len(mergeFinalPrompt):].strip()
     
-    traductionFinale=llamaFilter(traductionFinale,filter)
+    traductionFinale=llamaFilter(traductionFinale,filterSize=filterSize,filterChrSize=filterChrSize,filter=filter)
     return traductionFinale

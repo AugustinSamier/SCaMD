@@ -5,6 +5,7 @@ Related with their study https://arxiv.org/abs/2503.04554
 
 
 SCaMD pipeline:
+
 ![](figures/SCaMD.png)
 
 The following command applies $SCaMD-Core$ on flores200 dataset from English to Amharic with LLaMA 3.1 8B Instruct and save the results in a file: "SCaMD-Core/flores-English-Amharic-generations.jsonl".
