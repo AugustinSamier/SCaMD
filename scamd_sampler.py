@@ -7,8 +7,8 @@ import gc
 from scamd_utils import SCaMD,Retriever,get_datasets
 
 def sampler(
-    src="eng_Latn",
-    tgt="amh_Ethi",
+    src="English",
+    tgt="Amharic",
     k=5,
     codLangs=["French","German","Portuguese"],
     ds="flores",

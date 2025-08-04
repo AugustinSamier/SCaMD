@@ -45,8 +45,8 @@ from comptra.languages import MAPPING_LANG_TO_KEY
 
 def get_datasets(split,dataset_name_or_path: str, language: str, tgt_language: str = None):
     if dataset_name_or_path == "openlanguagedata/flores_plus":
-        src_ds = load_dataset(dataset_name_or_path, name=language, split=split)
-        tgt_ds = load_dataset(dataset_name_or_path, name=tgt_language, split=split)
+        src_ds = load_dataset(dataset_name_or_path, name=MAPPING_LANG_TO_KEY[language], split=split)
+        tgt_ds = load_dataset(dataset_name_or_path, name=MAPPING_LANG_TO_KEY[tgt_language], split=split)
         return {
             split: {
                 "src": src_ds,
