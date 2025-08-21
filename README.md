@@ -11,10 +11,10 @@ SCaMD pipeline:
 The following command applies $SCaMD-Core$ on flores200 dataset from English to Amharic with LLaMA 3.1 8B Instruct and save the results in a file: "SCaMD-Core/flores-English-Amharic-generations.jsonl".
 
 python -m scamd_sampler\
-    --src "eng_Latn"\                        # Source language (e.g., English)
-    --tgt "amh_Ethi"\                       # Target language (e.g., Amharic)
+    --src "English"\                        # Source language (e.g., English)
+    --tgt "Amharic"\                       # Target language (e.g., Amharic)
     --k 5\                                # Number of nearest examples to retrieve
-    --CodLangs "["French","German","Portuguese"]"\  # Languages to build multilingual dictionaries
+    --CodLangs ["French","German","Portuguese"]\  # Languages to build multilingual dictionaries
     --ds "flores"\                          # Dataset name or path
     --checkpoint 0\                       # Start index in the dataset
     --path_output "SCaMD-Core"\            # Output directory for generations
