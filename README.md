@@ -9,7 +9,7 @@ SCaMD pipeline:
 ![](figures/SCaMD.png)
 
 The following command applies $SCaMD-Core$ on flores200 dataset from English to Amharic with LLaMA 3.1 8B Instruct and save the results in a file: "SCaMD-Core/flores-English-Amharic-generations.jsonl".
-
+```python
 python -m scamd_sampler\
     --src "English"\                        # Source language (e.g., English)
     --tgt "Amharic"\                       # Target language (e.g., Amharic)
@@ -34,5 +34,5 @@ python -m scamd_sampler\
     --goalSize 40\                        # Target dictionary size
     --place "before"\                     # Dictionary placement in the prompt
     --filter True                         # Apply final filtering to output
-
+```
 If you have any question don't hesitate contacting me at augustinsamier@gmail.com
